@@ -1,15 +1,32 @@
 import { useState } from "react";
-import Button from "./components/atoms/Button/Button";
+import styled from "styled-components";
+
+import IconButton from "./components/atoms/Button/IconButton";
+import BaseButton from "./components/atoms/Button/BaseButton";
+import DropdownButton from "./components/atoms/Button/DropdownButton";
+
+import { MenuIcon } from "./components/atoms/Icons/Icons";
+
+const SButtonContainer = styled.div`
+  & button {
+    margin-bottom: 24px;
+  }
+`;
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h1>Test</h1>
-      <p>{count}</p>
-      <Button label={"Press me"} onClick={() => setCount(count + 1)} />
-    </div>
+    <SButtonContainer>
+      <p>Buttons</p>
+      <IconButton icon={<MenuIcon />} />
+      <IconButton icon={<MenuIcon />} label="Menu"  />
+
+      <IconButton icon={<MenuIcon />} label="Menu" hasBorder />
+
+      <DropdownButton label="Beinvloeden" />
+      <BaseButton label="Bekijk jouw talentenprofiel" />
+    </SButtonContainer>
   );
 }
 
