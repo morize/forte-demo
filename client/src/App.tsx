@@ -5,6 +5,8 @@ import IconButton from "./components/atoms/Button/IconButton";
 import BaseButton from "./components/atoms/Button/BaseButton";
 import DropdownButton from "./components/atoms/Button/DropdownButton";
 
+import HeaderTitle from "./components/atoms/HeaderTitle/HeaderTitle";
+
 import { MenuIcon } from "./components/atoms/Icons/Icons";
 
 const SButtonContainer = styled.div`
@@ -13,20 +15,31 @@ const SButtonContainer = styled.div`
   }
 `;
 
+const SHeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <SButtonContainer>
-      <p>Buttons</p>
-      <IconButton icon={<MenuIcon />} />
-      <IconButton icon={<MenuIcon />} label="Menu"  />
+    <>
+      <SHeaderContainer>
+        <HeaderTitle title="Mijn talenten" subTitle="Beinvloeden" />
+      </SHeaderContainer>
 
-      <IconButton icon={<MenuIcon />} label="Menu" hasBorder />
+      <SButtonContainer>
+        <h2>Buttons</h2>
+        <IconButton icon={<MenuIcon />} />
+        <IconButton icon={<MenuIcon />} label="Menu" />
 
-      <DropdownButton label="Beinvloeden" />
-      <BaseButton label="Bekijk jouw talentenprofiel" />
-    </SButtonContainer>
+        <IconButton icon={<MenuIcon />} label="Menu" hasBorder />
+
+        <DropdownButton label="Beinvloeden" />
+        <BaseButton label="Bekijk jouw talentenprofiel" />
+      </SButtonContainer>
+    </>
   );
 }
 
