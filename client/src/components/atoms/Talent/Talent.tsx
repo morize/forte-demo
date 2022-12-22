@@ -30,7 +30,7 @@ const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
   }
 `;
 
-interface ITalent {
+export interface ITalent {
   talent: String;
   domain:
     | 'executing'
