@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import BaseButton, { IBaseButton } from "./BaseButton";
 
-interface IIconButton extends IBaseButton {
+export interface IIconButton extends IBaseButton {
   icon?: JSX.Element;
   hasBorder?: boolean;
 }
