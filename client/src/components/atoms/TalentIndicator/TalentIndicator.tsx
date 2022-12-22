@@ -20,7 +20,7 @@ const STalentIndicator = styled.div<{
       width: ${percentage}%;`}
 `;
 
-interface ITalentIndicator {
+export interface ITalentIndicator {
   executingPerc: number;
   influencingPerc: number;
   relBuildingPerc: number;
