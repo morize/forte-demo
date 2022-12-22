@@ -9,6 +9,8 @@ import HeaderTitle from './components/atoms/HeaderTitle/HeaderTitle';
 
 import Talent from './components/atoms/Talent/Talent';
 
+import TalentIndicator from './components/atoms/TalentIndicator/TalentIndicator';
+
 import { MenuIcon } from './components/atoms/Icons/Icons';
 
 const SButtonContainer = styled.div`
@@ -29,6 +31,7 @@ const STalentsContainer = styled.div`
   grid-gap: 24px;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
+  margin-bottom: 24px;
 `;
 
 function App() {
@@ -58,11 +61,24 @@ function App() {
           placement={1}
         />
         <Talent talent="Hersteldrang" domain="executing" placement={2} />
-        <Talent talent="Leergierigheid" domain="strategic_thinking" placement={3} />
+        <Talent
+          talent="Leergierigheid"
+          domain="strategic_thinking"
+          placement={3}
+        />
         <Talent talent="Input" domain="strategic_thinking" placement={4} />
         <Talent talent="Onpartijdheid" domain="executing" placement={5} />
         <Talent talent="Maximalisering" domain="influencing" placement={6} />
       </STalentsContainer>
+      
+      <div style={{ width: '700px' }}>
+        <TalentIndicator
+          executingPerc={60}
+          influencingPerc={0}
+          relBuildingPerc={30}
+          stratThinkingPerc={10}
+        />
+      </div>
     </>
   );
 }
