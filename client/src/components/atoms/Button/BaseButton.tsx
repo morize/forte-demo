@@ -1,5 +1,5 @@
-import { ButtonHTMLAttributes } from "react";
-import styled from "styled-components";
+import { ButtonHTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 export interface IBaseButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: String;
@@ -14,22 +14,20 @@ const SBasedButton = styled.button`
 
   width: 100%;
   padding: 12px 24px;
-  
+
   box-sizing: border-box;
   cursor: pointer;
 
-  & p{
+  & p {
     margin: 6px 0;
   }
 `;
 
-const BaseButton = ({ label, children, ...rest }: IBaseButton) => {
-  return (
-    <SBasedButton {...rest}>
-      {children && children}
-      {label && <p>{label}</p>}
-    </SBasedButton>
-  );
-};
+const BaseButton = ({ label, children, ...rest }: IBaseButton) => (
+  <SBasedButton {...rest}>
+    {children && children}
+    {label && <p>{label}</p>}
+  </SBasedButton>
+);
 
 export default BaseButton;

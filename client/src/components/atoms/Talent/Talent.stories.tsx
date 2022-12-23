@@ -1,7 +1,7 @@
 import Talent, { ITalent } from './Talent';
 
 export default {
-  title: 'Talent',
+  title: 'Atoms',
 };
 
 export const TalentItem = (args: ITalent) => <Talent {...args} />;

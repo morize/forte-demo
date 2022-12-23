@@ -1,7 +1,7 @@
 import TalentIndicator, { ITalentIndicator } from './TalentIndicator';
 
 export default {
-  title: 'Talent Indicator',
+  title: 'Atoms',
 };
 
 export const TalentIndicatorItem = (args: ITalentIndicator) => (

@@ -5,31 +5,31 @@ import IconButton, { IIconButton } from './IconButton';
 import { MenuIcon } from '../../atoms/Icons/Icons';
 
 export default {
-  title: 'Button',
+  title: 'Atoms',
 };
 
-export const Base = (args: IBaseButton) => <BaseButton {...args} />;
-Base.story = {
+export const ButtonBase = (args: IBaseButton) => <BaseButton {...args} />;
+ButtonBase.story = {
   name: 'Base Button',
 };
-Base.args = {
+ButtonBase.args = {
   label: 'Click me',
 };
 
-export const Dropdown = (args: IBaseButton) => <DropdownButton {...args} />;
-Dropdown.story = {
+export const ButtonDropdown = (args: IBaseButton) => <DropdownButton {...args} />;
+ButtonDropdown.story = {
   name: 'Dropdown Button',
 };
-Dropdown.args = {
+ButtonDropdown.args = {
   label: 'Relaties Bouwen',
 };
 
-export const Icon = (args: IIconButton) => <IconButton {...args} />;
-Icon.story = {
+export const ButtonIcon = (args: IIconButton) => <IconButton {...args} />;
+ButtonIcon.story = {
   name: 'Icon Button',
 };
 
-Icon.args = {
+ButtonIcon.args = {
   label: 'Menu',
   hasBorder: false,
   icon: <MenuIcon />,
