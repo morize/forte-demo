@@ -1,5 +1,11 @@
+import './index.css'
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      Test
+    </>
+  );
 };
 
 export default App;
