@@ -1,7 +1,48 @@
 * {
   margin: 0;
   font-family: 'Montserrat';
+  font-weight: 500;
 }
-* {
-  font-family: 'Montserrat', sans-serif;
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+svg {
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  h2 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
+
+  svg {
+    width: 34px;
+    height: 34px;
+  }
 }
