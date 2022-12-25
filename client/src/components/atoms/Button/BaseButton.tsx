@@ -12,9 +12,9 @@ const SBasedButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: 100%;
   padding: 12px 24px;
-
+  background: none;
+  border: 1px solid black;
   box-sizing: border-box;
   cursor: pointer;
 

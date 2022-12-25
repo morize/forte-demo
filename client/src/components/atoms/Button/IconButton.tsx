@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import BaseButton, { IBaseButton } from "./BaseButton";
+import styled from 'styled-components';
+import BaseButton, { IBaseButton } from './BaseButton';
 
 export interface IIconButton extends IBaseButton {
   icon?: JSX.Element;
@@ -7,22 +7,12 @@ export interface IIconButton extends IBaseButton {
 }
 
 const SIconButton = styled(BaseButton)<IIconButton>`
-  border: ${(props) => (props.hasBorder ? "1px solid black" : "none")};
-  width: 84px;
-  height: 84px;
-  
-  & svg {
-    min-width: 32px;
-    min-height: 32px;
-
-    & path {
-      fill: black;
-    }
-  }
+  border: ${(props) => (props.hasBorder ? '1px solid black' : 'none')};
+  padding: 0;
 `;
 
-const IconButton = ({ icon, hasBorder, ...rest }: IIconButton) => {
-  return <SIconButton children={icon} hasBorder={hasBorder} {...rest} />;
-};
+const IconButton = ({ icon, hasBorder, ...rest }: IIconButton) => (
+  <SIconButton children={icon} hasBorder={hasBorder} {...rest} />
+);
 
 export default IconButton;
