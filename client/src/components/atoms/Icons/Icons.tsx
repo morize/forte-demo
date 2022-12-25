@@ -1,19 +1,38 @@
-export const MenuIcon = () => (
+export const Menu = () => (
   <svg
-    width="34"
-    height="34"
-    viewBox="0 0 34 34"
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M11.475 18.8983L15.4842 14.8892L5.53921 4.95833C3.32921 7.16833 3.32921 10.7525 5.53921 12.9767L11.475 18.8983V18.8983ZM21.08 16.3342C23.2475 17.34 26.2934 16.6317 28.5459 14.3792C31.2517 11.6733 31.7759 7.79167 29.6934 5.70917C27.625 3.64083 23.7434 4.15083 21.0234 6.85667C18.7709 9.10917 18.0625 12.155 19.0684 14.3225L5.24171 28.1492L7.23921 30.1467L17 20.4142L26.7467 30.1608L28.7442 28.1633L18.9975 18.4167L21.08 16.3342V16.3342Z"
-      fill="black"
-    />
+    <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+      <path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z" />
+    </svg>
   </svg>
 );
 
 export const ExpandMore = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 48 48">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    width="48"
+    viewBox="0 0 48 48"
+  >
     <path d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z" />
+  </svg>
+);
+
+export const Back = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 48 48"><path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z"/></svg>
+);
+
+export const MoreHorizontal = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    width="48"
+    viewBox="0 0 48 48"
+  >
+    <path d="M10.4 26.4q-1 0-1.7-.7T8 24q0-1 .7-1.7t1.7-.7q1 0 1.7.7t.7 1.7q0 1-.7 1.7t-1.7.7Zm13.6 0q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7t1.7-.7q1 0 1.7.7t.7 1.7q0 1-.7 1.7t-1.7.7Zm13.6 0q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7t1.7-.7q1 0 1.7.7T40 24q0 1-.7 1.7t-1.7.7Z" />
   </svg>
 );

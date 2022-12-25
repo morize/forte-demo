@@ -2,7 +2,7 @@ import BaseButton, { IBaseButton } from './BaseButton';
 import DropdownButton from './DropdownButton';
 import IconButton, { IIconButton } from './IconButton';
 
-import { MenuIcon } from '../../atoms/Icons/Icons';
+import { Menu } from '../../atoms/Icons/Icons';
 
 export default {
   title: 'Atoms',
@@ -32,5 +32,5 @@ ButtonIcon.story = {
 ButtonIcon.args = {
   label: 'Menu',
   hasBorder: false,
-  icon: <MenuIcon />,
+  icon: <Menu />,
 };
