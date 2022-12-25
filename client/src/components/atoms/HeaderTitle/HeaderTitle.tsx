@@ -1,33 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface IHeaderTitle {
   title: String;
   subTitle?: String;
 }
 
-const SHeaderTitleContainer = styled.div`
-  display: inline-flex;
+const SHeaderTitle = styled.div`
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+  flex: 1;
 
-const SHeaderTitle = styled.h2`
-  margin: 0;
-  font-size: 24px;
-`;
-
-const SHeaderSubTitle = styled.h3`
-  margin: 12px 0 0 0;
-  font-size: 18px;
-  font-weight: 400;
+  & h3 {
+    margin: 4px 0 0 0;
+  }
 `;
 
 const HeaderTitle = ({ title, subTitle }: IHeaderTitle) => (
-    <SHeaderTitleContainer>
-      <SHeaderTitle>{title}</SHeaderTitle>
-      {subTitle && <SHeaderSubTitle>{subTitle}</SHeaderSubTitle>}
-    </SHeaderTitleContainer>
+  <SHeaderTitle>
+    <h2>{title}</h2>
+    {subTitle && <h3>{subTitle}</h3>}
+  </SHeaderTitle>
 );
 
 export default HeaderTitle;
