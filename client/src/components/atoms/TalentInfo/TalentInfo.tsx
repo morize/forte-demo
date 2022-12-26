@@ -11,6 +11,10 @@ const STalentInfo = styled.p<{ domainRGBValues: Array<number> }>`
   display: flex;
   align-items: center;
   padding: 14px;
+
+  & p {
+    font-weight: 400;
+  }
   
   ${({ domainRGBValues: [red, green, blue] }) =>
     `
