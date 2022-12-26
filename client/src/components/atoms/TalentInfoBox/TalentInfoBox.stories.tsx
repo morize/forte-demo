@@ -1,4 +1,4 @@
-import TalentInfo, { ITalentInfo } from './TalentInfo';
+import TalentInfoBox, { ITalentInfoBox } from './TalentInfoBox';
 
 export default {
   title: 'Atoms',
@@ -11,10 +11,10 @@ const domainOptions = [
   'strategic_thinking',
 ];
 
-export const TalentInfoItem = (args: ITalentInfo) => <TalentInfo {...args} />;
+export const TalentInfoBoxItem = (args: ITalentInfoBox) => <TalentInfoBox {...args} />;
 
-TalentInfoItem.story = {
-  name: 'TalentInfo Item',
+TalentInfoBoxItem.story = {
+  name: 'TalentInfoBox Item',
   argTypes: {
     domain: {
       options: domainOptions,
@@ -23,7 +23,7 @@ TalentInfoItem.story = {
   },
 };
 
-TalentInfoItem.args = {
+TalentInfoBoxItem.args = {
   info: 'Van nature bent u mogelijk teleurgesteld in uzelf als het u niet lukt iemand op zijn gemak te stellen. Misschien wilt u uw goedkeuring geven aan alle soorten mensen, ongeacht hun leeftijd, nationaliteit, inkomen, baan, opleiding, religie, handicap of uiterlijk.',
   domain: 'executing',
 };
