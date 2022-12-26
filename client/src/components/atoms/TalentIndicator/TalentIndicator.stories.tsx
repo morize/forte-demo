@@ -14,7 +14,7 @@ TalentIndicatorItem.story = {
 
 TalentIndicatorItem.args = {
   executingPerc: 60,
-  influencingPerc: 20,
-  relBuildingPerc: 10,
-  stratThinkingPerc: 10,
+  influencingPerc: 30,
+  relBuildingPerc: 5,
+  stratThinkingPerc: 5,
 };

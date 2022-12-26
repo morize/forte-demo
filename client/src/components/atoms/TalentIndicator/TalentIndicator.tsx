@@ -5,6 +5,14 @@ const STalentIndicatorContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 46px;
+
+  @media (max-width: 900px) {
+    height: 32px;
+  }
+
+  @media (max-width: 380px) {
+    height: 28px;
+  }
 `;
 
 const STalentIndicator = styled.div<{
@@ -12,8 +20,7 @@ const STalentIndicator = styled.div<{
   domainRGBValues: Array<Number>;
 }>`
   display: flex;
-  min-width: 15%;
-  height: 46px;
+  min-width: 10%;
 
   ${({ percentage, domainRGBValues: [red, green, blue] }) => `
       background-color: rgba(${red}, ${green}, ${blue}, 1);
