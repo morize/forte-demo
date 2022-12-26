@@ -30,34 +30,36 @@ const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
   }
 `;
 
+export type DomainType =
+  | 'executing'
+  | 'influencing'
+  | 'relationship_building'
+  | 'strategic_thinking';
+
 export interface ITalent {
   talent: String;
-  domain:
-    | 'executing'
-    | 'influencing'
-    | 'relationship_building'
-    | 'strategic_thinking';
+  domain: DomainType;
   placement?: number;
 }
 
-const Talent = ({ talent, domain, placement }: ITalent) => {
-  const domainRGBValues = () => {
-    switch (domain) {
-      case 'executing':
-        return TalentDomainsRGB.executing;
-      case 'influencing':
-        return TalentDomainsRGB.influencing;
-      case 'relationship_building':
-        return TalentDomainsRGB.relationshipBuilding;
-      case 'strategic_thinking':
-        return TalentDomainsRGB.strategicThinking;
-      default:
-        return [255, 0, 0];
-    }
-  };
+export const domainRGBValues = (domain: String) => {
+  switch (domain) {
+    case 'executing':
+      return TalentDomainsRGB.executing;
+    case 'influencing':
+      return TalentDomainsRGB.influencing;
+    case 'relationship_building':
+      return TalentDomainsRGB.relationshipBuilding;
+    case 'strategic_thinking':
+      return TalentDomainsRGB.strategicThinking;
+    default:
+      return [255, 0, 0];
+  }
+};
 
+const Talent = ({ talent, domain, placement }: ITalent) => {
   return (
-    <STalentContainer domainRGBValues={domainRGBValues()}>
+    <STalentContainer domainRGBValues={domainRGBValues(domain)}>
       {placement && <span>{placement}</span>}
       <p>{talent}</p>
     </STalentContainer>
