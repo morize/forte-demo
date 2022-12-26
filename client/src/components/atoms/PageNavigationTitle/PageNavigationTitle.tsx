@@ -14,6 +14,7 @@ const SPageNavigationTitle = styled.div`
   
   & h3 {
     margin: 4px 0 0 0;
+    font-weight: 400;
   }
 `;
 

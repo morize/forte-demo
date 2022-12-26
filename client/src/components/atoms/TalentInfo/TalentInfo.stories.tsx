@@ -4,10 +4,23 @@ export default {
   title: 'Atoms',
 };
 
+const domainOptions = [
+  'executing',
+  'influencing',
+  'relationship_building',
+  'strategic_thinking',
+];
+
 export const TalentInfoItem = (args: ITalentInfo) => <TalentInfo {...args} />;
 
 TalentInfoItem.story = {
   name: 'TalentInfo Item',
+  argTypes: {
+    domain: {
+      options: domainOptions,
+      control: { type: 'select' },
+    },
+  },
 };
 
 TalentInfoItem.args = {
