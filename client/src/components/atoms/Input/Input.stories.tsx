@@ -4,15 +4,16 @@ export default {
   title: 'Atoms',
 };
 
-export const BaseInputItem = (args: IBaseInput) => (
+export const InputBase = (args: IBaseInput) => (
   <BaseInput {...args} />
 );
 
-BaseInputItem.story = {
-  name: 'BaseInput Item',
+InputBase.story = {
+  name: 'Input Base',
 };
 
-BaseInputItem.args = {
+InputBase.args = {
   label: "Naam",
-  placeholder: "Geef je doel een naam (maximaal 4 woorden) "
+  placeholder: "Geef je doel een naam (maximaal 4 woorden)",
+  isClearable: false,
 };
