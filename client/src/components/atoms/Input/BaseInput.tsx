@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, RefObject, forwardRef, ForwardedRef } from 'react';
 import styled from 'styled-components';
 
 export interface IBaseInput extends InputHTMLAttributes<HTMLInputElement> {
@@ -10,10 +10,11 @@ const SBaseInput = styled.div`
   flex-direction: column;
 
   & input {
+    height: 100%;
     padding: 12px;
     box-sizing: border-box;
     font-size: 12px;
-    
+
     &:focus {
       outline: none;
     }
@@ -26,15 +27,19 @@ const SBaseInput = styled.div`
   }
 `;
 
-const BaseInput = ({ label, ...rest }: IBaseInput) => {
+const BaseInput = forwardRef(({ label, ...rest }: IBaseInput, ref: ForwardedRef<HTMLInputElement>) => {
   const id = label?.toLowerCase();
 
   return (
     <SBaseInput>
       {label && <label htmlFor={id}>{label}</label>}
-      {label ? <input id={id} name={id} {...rest} /> : <input {...rest} />}
+      {label ? (
+        <input ref={ref} id={id} name={id} {...rest} />
+      ) : (
+        <input ref={ref} {...rest} />
+      )}
     </SBaseInput>
   );
-};
+});
 
 export default BaseInput;
