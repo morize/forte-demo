@@ -18,13 +18,13 @@ const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
     `}
 
   & span {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   & p {
-    padding: 6px 0;
+    padding: 0 0 12px 0;
     word-wrap: break-word;
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
     box-sizing: border-box;
   }
