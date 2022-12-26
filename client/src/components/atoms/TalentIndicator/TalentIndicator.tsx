@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { TalentDomainsRGB } from '../Colors/Colors';
+
+import { domainRGBValues } from '../Talent/Talent';
 
 const STalentIndicatorContainer = styled.div`
   display: flex;
@@ -34,42 +35,25 @@ export interface ITalentIndicator {
   stratThinkingPerc: number;
 }
 
-const TalentIndicator = (props: ITalentIndicator) => {
-  const domainRGBValues = (domain: string) => {
-    switch (domain) {
-      case 'executing':
-        return TalentDomainsRGB.executing;
-      case 'influencing':
-        return TalentDomainsRGB.influencing;
-      case 'relationship_building':
-        return TalentDomainsRGB.relationshipBuilding;
-      case 'strategic_thinking':
-        return TalentDomainsRGB.strategicThinking;
-      default:
-        return [255, 0, 0];
-    }
-  };
-
-  return (
-    <STalentIndicatorContainer>
-      <STalentIndicator
-        domainRGBValues={domainRGBValues('executing')}
-        percentage={props.executingPerc}
-      />
-      <STalentIndicator
-        domainRGBValues={domainRGBValues('influencing')}
-        percentage={props.influencingPerc}
-      />
-      <STalentIndicator
-        domainRGBValues={domainRGBValues('relationship_building')}
-        percentage={props.relBuildingPerc}
-      />
-      <STalentIndicator
-        domainRGBValues={domainRGBValues('strategic_thinking')}
-        percentage={props.stratThinkingPerc}
-      />
-    </STalentIndicatorContainer>
-  );
-};
+const TalentIndicator = (props: ITalentIndicator) => (
+  <STalentIndicatorContainer>
+    <STalentIndicator
+      domainRGBValues={domainRGBValues('executing')}
+      percentage={props.executingPerc}
+    />
+    <STalentIndicator
+      domainRGBValues={domainRGBValues('influencing')}
+      percentage={props.influencingPerc}
+    />
+    <STalentIndicator
+      domainRGBValues={domainRGBValues('relationship_building')}
+      percentage={props.relBuildingPerc}
+    />
+    <STalentIndicator
+      domainRGBValues={domainRGBValues('strategic_thinking')}
+      percentage={props.stratThinkingPerc}
+    />
+  </STalentIndicatorContainer>
+);
 
 export default TalentIndicator;
