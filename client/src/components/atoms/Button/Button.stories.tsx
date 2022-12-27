@@ -2,7 +2,7 @@ import BaseButton, { IBaseButton } from './BaseButton';
 import HorizontalIconButton from './HorizontalIconButton';
 import IconButton, { IIconButton } from './IconButton';
 
-import { Menu } from '../../atoms/Icons/Icons';
+import { Menu, ExpandMore } from '../../atoms/Icons/Icons';
 
 export default {
   title: 'Atoms',
@@ -23,7 +23,6 @@ ButtonIcon.story = {
 
 ButtonIcon.args = {
   label: 'Menu',
-  hasBorder: false,
   icon: <Menu />,
 };
 
@@ -35,4 +34,5 @@ ButtonHorizontalIcon.story = {
 };
 ButtonHorizontalIcon.args = {
   label: 'Relaties Bouwen',
+  children: <ExpandMore />,
 };
