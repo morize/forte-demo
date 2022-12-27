@@ -1,13 +1,15 @@
-import TalentInfoNavigation, {
-  ITalentInfoNavigation,
-} from './TalentInfoNavigation';
+import TalentInfoNavigation from './TalentInfoNavigation';
 
 export default {
   title: 'Molecules',
 };
 
-export const TalentInfoNavigationItem = (args: ITalentInfoNavigation) => (
-  <TalentInfoNavigation {...args} />
+export const TalentInfoNavigationItem = () => (
+  <TalentInfoNavigation
+    onNavigationItemClicked={(navigationValue) => {
+      console.log(navigationValue);
+    }}
+  />
 );
 
 TalentInfoNavigationItem.story = {
