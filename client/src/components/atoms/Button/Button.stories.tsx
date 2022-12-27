@@ -1,5 +1,7 @@
+import { useState } from 'react';
+
 import BaseButton, { IBaseButton } from './BaseButton';
-import HorizontalIconButton from './HorizontalIconButton';
+import SelectButton from './SelectButton';
 import IconButton, { IIconButton } from './IconButton';
 
 import { Menu, ExpandMore } from '../../atoms/Icons/Icons';
@@ -26,13 +28,29 @@ ButtonIcon.args = {
   icon: <Menu />,
 };
 
-export const ButtonHorizontalIcon = (args: IBaseButton) => (
-  <HorizontalIconButton {...args} />
-);
-ButtonHorizontalIcon.story = {
-  name: 'Dropdown Button',
+type OptionType = { label: string; value: string };
+
+export const ButtonSelect = () => {
+  const [selectValue, setSelectValue] = useState({
+    label: 'Alles',
+    value: 'alles',
+  });
+
+  return (
+    <SelectButton
+      value={selectValue}
+      onChange={(option) => setSelectValue(option as OptionType)}
+      options={[
+        { label: 'Alles', value: 'alles' },
+        { label: 'Uitvoeren', value: 'uitvoeren' },
+        { label: 'Beinvloeden', value: 'beinvloeden' },
+        { label: 'Relatie Bouwen', value: 'relatie_bouwen' },
+        { label: 'Strategisch Denken', value: 'strategisch_denken' },
+      ]}
+    />
+  );
 };
-ButtonHorizontalIcon.args = {
-  label: 'Relaties Bouwen',
-  children: <ExpandMore />,
+
+ButtonSelect.story = {
+  name: 'Select Button',
 };
