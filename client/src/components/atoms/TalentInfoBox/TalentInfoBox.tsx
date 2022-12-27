@@ -11,10 +11,7 @@ const STalentInfoBox = styled.p<{ domainRGBValues: Array<number> }>`
   display: flex;
   align-items: center;
   padding: 14px;
-
-  & p {
-    font-weight: 400;
-  }
+  font-weight: 400;
 
   ${({ domainRGBValues: [red, green, blue] }) =>
     `
@@ -25,7 +22,7 @@ const STalentInfoBox = styled.p<{ domainRGBValues: Array<number> }>`
 
 const TalentInfoBox = ({ info, domain }: ITalentInfoBox) => (
   <STalentInfoBox domainRGBValues={domainRGBValues(domain)}>
-    <p>{info}</p>
+    {info}
   </STalentInfoBox>
 );
 
