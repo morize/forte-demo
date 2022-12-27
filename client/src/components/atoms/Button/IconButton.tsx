@@ -7,9 +7,12 @@ export interface IIconButton extends IBaseButton {
 }
 
 const SIconButton = styled(BaseButton)<IIconButton>`
-  height: 100%;
   padding: 0;
   border: ${(props) => (props.hasBorder ? '1px solid black' : 'none')};
+
+  & p {
+    margin: 0;
+  }
 `;
 
 const IconButton = ({ icon, hasBorder, ...rest }: IIconButton) => (
