@@ -1,5 +1,5 @@
 import BaseButton, { IBaseButton } from './BaseButton';
-import DropdownButton from './DropdownButton';
+import HorizontalIconButton from './HorizontalIconButton';
 import IconButton, { IIconButton } from './IconButton';
 
 import { Menu } from '../../atoms/Icons/Icons';
@@ -16,14 +16,6 @@ ButtonBase.args = {
   label: 'Click me',
 };
 
-export const ButtonDropdown = (args: IBaseButton) => <DropdownButton {...args} />;
-ButtonDropdown.story = {
-  name: 'Dropdown Button',
-};
-ButtonDropdown.args = {
-  label: 'Relaties Bouwen',
-};
-
 export const ButtonIcon = (args: IIconButton) => <IconButton {...args} />;
 ButtonIcon.story = {
   name: 'Icon Button',
@@ -33,4 +25,14 @@ ButtonIcon.args = {
   label: 'Menu',
   hasBorder: false,
   icon: <Menu />,
+};
+
+export const ButtonHorizontalIcon = (args: IBaseButton) => (
+  <HorizontalIconButton {...args} />
+);
+ButtonHorizontalIcon.story = {
+  name: 'Dropdown Button',
+};
+ButtonHorizontalIcon.args = {
+  label: 'Relaties Bouwen',
 };
