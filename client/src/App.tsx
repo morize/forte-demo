@@ -1,11 +1,7 @@
-import './index.css'
+import Routes from './routes/Routes';
 
 const App = () => {
-  return (
-    <>
-      Test
-    </>
-  );
+  return <Routes />;
 };
 
 export default App;
