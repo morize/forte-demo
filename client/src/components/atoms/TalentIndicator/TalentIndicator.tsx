@@ -5,14 +5,15 @@ import { domainRGBValues } from '../Talent/Talent';
 const STalentIndicatorContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 46px;
-
+  height: 42px;
+  margin: 12px 0;
+  
   @media (max-width: 900px) {
     height: 32px;
   }
 
   @media (max-width: 380px) {
-    height: 28px;
+    height: 24px;
   }
 `;
 

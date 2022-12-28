@@ -10,15 +10,23 @@ export interface IPageNavigation {
   pageSubtitle?: String;
   hasBackButton?: boolean;
   hasMoreButton?: boolean;
+  onBackButtonClicked?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const SPageNavigation = styled.div`
   position: relative;
   display: flex;
-  height: 48px;
+  height: 100px;
+  padding: 0 40px;
+  text-transform: capitalize;
 
   & button:last-child {
     margin-left: auto;
+  }
+
+  @media (max-width: 500px) {
+    height: 80px;
+    padding: 0 30px;
   }
 `;
 
@@ -28,9 +36,12 @@ const PageNavigation = ({
   pageSubtitle,
   hasBackButton,
   hasMoreButton,
+  onBackButtonClicked,
 }: IPageNavigation) => (
   <SPageNavigation>
-    {hasBackButton && <IconButton icon={<Back />} />}
+    {hasBackButton && (
+      <IconButton icon={<Back />} onClick={onBackButtonClicked} />
+    )}
     <PageNavigationTitle title={pageTitle} subTitle={pageSubtitle} />
     {hasMoreButton && <IconButton icon={<MoreHorizontal />} />}
   </SPageNavigation>
