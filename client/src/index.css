@@ -6,6 +6,7 @@
 
 h1 {
   font-size: 20px;
+  font-weight: 600;
 }
 
 h2 {
@@ -70,6 +71,6 @@ p {
   }
 
   p {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

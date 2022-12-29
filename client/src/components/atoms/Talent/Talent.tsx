@@ -6,51 +6,41 @@ const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 168px;
+
   height: 100px;
   padding: 14px;
+  text-transform: capitalize;
   box-sizing: border-box;
-
+  
   ${({ domainRGBValues: [red, green, blue] }) =>
     `
       border-left: 3px solid rgba(${red}, ${green}, ${blue}, 1);
       background-color: rgba(${red}, ${green}, ${blue}, 0.18);
     `}
 
-  & span {
-    font-size: 20px;
-  }
-
   & p {
     padding: 0 0 12px 0;
     word-wrap: break-word;
-    font-size: 12px;
     margin: 0;
     box-sizing: border-box;
   }
 `;
 
-export type DomainType =
-  | 'executing'
-  | 'influencing'
-  | 'relationship_building'
-  | 'strategic_thinking';
-
 export interface ITalent {
-  talent: String;
-  domain: DomainType;
+  talent: string;
+  domain: string;
   placement?: number;
 }
 
 export const domainRGBValues = (domain: String) => {
   switch (domain) {
-    case 'executing':
+    case 'uitvoeren':
       return TalentDomainsRGB.executing;
-    case 'influencing':
+    case 'beinvloeden':
       return TalentDomainsRGB.influencing;
-    case 'relationship_building':
+    case 'relatie bouwen':
       return TalentDomainsRGB.relationshipBuilding;
-    case 'strategic_thinking':
+    case 'strategisch denken':
       return TalentDomainsRGB.strategicThinking;
     default:
       return [255, 0, 0];

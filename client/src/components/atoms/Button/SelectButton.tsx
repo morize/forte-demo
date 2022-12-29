@@ -7,7 +7,7 @@ const SSelect = styled(Select)`
   display: inline-flex;
 
   & .select__control {
-    display: inline-flex;
+    display: flex;
     padding: 0 0 0 16px;
     border: 1px solid black;
     border-radius: 0;
@@ -17,6 +17,9 @@ const SSelect = styled(Select)`
       border-color: black;
     }
 
+    &:focus {
+      color: none;
+    }
     @media (max-width: 500px) {
       padding: 0 0 0 14px;
     }
@@ -40,6 +43,7 @@ const SSelect = styled(Select)`
   }
 
   & .select__value-container {
+    width: 100%;
     font-size: 14px;
     padding: 0;
 
@@ -58,22 +62,19 @@ const SSelect = styled(Select)`
   }
 
   & .select__single-value {
+    width: 100%;
     color: black;
     padding: 0;
   }
 `;
 
-const DropdownIndicator = () => <ExpandMore />;
-
-const SelectButton = (props: Props) => {
-  return (
-    <SSelect
-      isSearchable={false}
-      components={{ DropdownIndicator }}
-      classNamePrefix="select"
-      {...props}
-    />
-  );
-};
+const SelectButton = (props: Props) => (
+  <SSelect
+    isSearchable={false}
+    components={{ DropdownIndicator: () => <ExpandMore /> }}
+    classNamePrefix="select"
+    {...props}
+  />
+);
 
 export default SelectButton;
