@@ -1,34 +1,13 @@
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 import TalentIndicator from '../components/atoms/TalentIndicator/TalentIndicator';
 import BaseButton from '../components/atoms/Button/BaseButton';
 
-const SHulpbronnenPage = styled.div`
-  & > div {
-    margin-bottom: 20px;
-
-    & > h3,
-    & > h1 {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-  }
-
-  & > button {
-    width: 100%;
-  }
-
-  & span {
-    font-weight: 600;
-  }
-`;
-
 const Hulpbronnen = () => {
   const navigate = useNavigate();
-
+  
   return (
-    <SHulpbronnenPage>
+    <>
       <div>
         <h1>Hulpbronnen</h1>
         <p>
@@ -62,12 +41,12 @@ const Hulpbronnen = () => {
 
       <BaseButton
         label="Bekijk jouw talentenprofiel"
-        onClick={(e)=>{
-            e.preventDefault;
-            navigate('talenten');
+        onClick={(e) => {
+          e.preventDefault;
+          navigate('talenten');
         }}
       />
-    </SHulpbronnenPage>
+    </>
   );
 };
 
