@@ -1,58 +1,62 @@
-import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { Props } from 'react-select';
 
-import IconButton, {IIconButton} from '../../atoms/Button/IconButton';
-import BaseInput from '../../atoms/Input/BaseInput';
-import { Search, Back } from '../../atoms/Icons/Icons';
+import SelectButton from '../../atoms/Button/SelectButton';
+import IconButton from '../../atoms/Button/IconButton';
+import { Search, Back, Close } from '../../atoms/Icons/Icons';
 
-export interface ISearchButton {}
+export interface ISearchButton extends Props {
+  isOpen: boolean;
+  onSearchbuttonClicked: () => void;
+}
 
-const SSearchButton = styled.div`
+const SSearchContainer = styled.div`
   display: flex;
   align-items: center;
-  height: 48px;
+  flex: 1;
 
   & button {
     height: 100%;
   }
 
   & div:last-child {
-    border-left: 0;
     height: 100%;
-    flex: 1;
   }
 `;
 
-const SearchButton = ({}: ISearchButton) => {
-  const [isOpened, setIsOpened] = useState(false);
-  const [searchInputValue, setSearchInputValue] = useState('');
-  const inputRef = useRef<HTMLInputElement>(null);
+const SSearchBarSelect = styled(SelectButton)`
+  display: flex;
+  width: 100%;
 
-  useEffect(() => {
-    isOpened && focusInput();
-  }, [isOpened]);
+  & .select__control {
+    display: flex;
+    width: 100%;
+    border-left: none;
+  }
+`;
 
-  const focusInput = () => {
-    inputRef.current?.focus();
-  };
-
+const SearchButton = ({
+  isOpen,
+  onSearchbuttonClicked,
+  ...rest
+}: ISearchButton) => {
   return (
-    <SSearchButton>
+    <SSearchContainer>
       <IconButton
-        icon={isOpened ? <Back /> : <Search />}
+        icon={isOpen ? <Back /> : <Search />}
         hasBorder
-        onClick={() => setIsOpened(!isOpened)}
+        onClick={() => onSearchbuttonClicked()}
       />
-      {isOpened && (
-        <BaseInput
-          ref={inputRef}
-          value={searchInputValue}
+      {isOpen && (
+        <SSearchBarSelect
           isClearable
-          onChange={(e) => setSearchInputValue(e.target.value)}
-          onCloseButtonClicked={() => setSearchInputValue('')}
+          autoFocus
+          isSearchable
+          components={{ DropdownIndicator: () => <Close /> }}
+          {...rest}
         />
       )}
-    </SSearchButton>
+    </SSearchContainer>
   );
 };
 
