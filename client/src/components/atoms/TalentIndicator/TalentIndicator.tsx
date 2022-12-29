@@ -39,19 +39,19 @@ export interface ITalentIndicator {
 const TalentIndicator = (props: ITalentIndicator) => (
   <STalentIndicatorContainer>
     <STalentIndicator
-      domainRGBValues={domainRGBValues('executing')}
+      domainRGBValues={domainRGBValues('uitvoeren')}
       percentage={props.executingPerc}
     />
     <STalentIndicator
-      domainRGBValues={domainRGBValues('influencing')}
+      domainRGBValues={domainRGBValues('beinvloeden')}
       percentage={props.influencingPerc}
     />
     <STalentIndicator
-      domainRGBValues={domainRGBValues('relationship_building')}
+      domainRGBValues={domainRGBValues('relatie bouwen')}
       percentage={props.relBuildingPerc}
     />
     <STalentIndicator
-      domainRGBValues={domainRGBValues('strategic_thinking')}
+      domainRGBValues={domainRGBValues('strategisch denken')}
       percentage={props.stratThinkingPerc}
     />
   </STalentIndicatorContainer>
