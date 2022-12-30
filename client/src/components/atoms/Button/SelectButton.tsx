@@ -1,13 +1,19 @@
 import styled from 'styled-components';
-import Select, { Props } from 'react-select';
+import Select, {
+  components,
+  Props,
+  DropdownIndicatorProps,
+  ClearIndicatorProps,
+} from 'react-select';
 
-import { ExpandMore } from '../Icons/Icons';
+import { Close, ExpandMore } from '../Icons/Icons';
 
 const SSelect = styled(Select)`
-  display: inline-flex;
+  display: flex;
+  font-size: 14px;
 
   & .select__control {
-    display: flex;
+    width: 100%;
     padding: 0 0 0 16px;
     border: 1px solid black;
     border-radius: 0;
@@ -16,64 +22,59 @@ const SSelect = styled(Select)`
     &:hover {
       border-color: black;
     }
-
-    &:focus {
-      color: none;
-    }
-    @media (max-width: 500px) {
-      padding: 0 0 0 14px;
-    }
   }
 
   & .select__control--is-focused {
-    outline: 0;
     box-shadow: none;
-
-    &:hover {
-      border-color: black;
-    }
   }
+
   & .select__indicator-separator {
     display: none;
   }
 
-  & .select__indicator svg {
-    fill: black;
-    font-weight: 500;
-  }
-
   & .select__value-container {
-    width: 100%;
-    font-size: 14px;
     padding: 0;
-
-    @media (max-width: 500px) {
-      font-size: 12px;
-    }
   }
 
   & .select__menu {
-    font-size: 14px;
     min-width: 180px;
+  }
 
-    @media (max-width: 500px) {
-      font-size: 12px;
+  & .select__indicators {
+    height: 100%;
+
+    & > .select__indicator {
+      padding: 0;
+      cursor: pointer;
     }
   }
 
-  & .select__single-value {
-    width: 100%;
-    color: black;
-    padding: 0;
+  @media (max-width: 500px) {
+    font-size: 12px;
+
+    & .select__control {
+      padding: 0 0 0 14px;
+    }
   }
 `;
 
-const SelectButton = (props: Props) => (
+const DropdownIndicator = (props: DropdownIndicatorProps) => (
+  <components.DropdownIndicator {...props}>
+    <ExpandMore />
+  </components.DropdownIndicator>
+);
+
+const ClearIndicator = (props: ClearIndicatorProps) => (
+  <components.ClearIndicator {...props}>
+    <Close />
+  </components.ClearIndicator>
+);
+
+const SelectButton = (selectProps: Props) => (
   <SSelect
-    isSearchable={false}
-    components={{ DropdownIndicator: () => <ExpandMore /> }}
+    components={{ DropdownIndicator, ClearIndicator }}
     classNamePrefix="select"
-    {...props}
+    {...selectProps}
   />
 );
 

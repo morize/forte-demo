@@ -3,61 +3,53 @@ import { Props } from 'react-select';
 
 import SelectButton from '../../atoms/Button/SelectButton';
 import IconButton from '../../atoms/Button/IconButton';
-import { Search, Back, Close } from '../../atoms/Icons/Icons';
+import { Search, Back } from '../../atoms/Icons/Icons';
 
 export interface ISearchButton extends Props {
-  isOpen: boolean;
-  onSearchbuttonClicked: () => void;
+  isSearchbarOpen: boolean;
+  onSearchButtonClicked: () => void;
 }
 
 const SSearchContainer = styled.div`
   display: flex;
-  align-items: center;
   flex: 1;
 
-  & button {
-    height: 100%;
-  }
-
-  & div:last-child {
-    height: 100%;
-  }
-`;
-
-const SSearchBarSelect = styled(SelectButton)`
-  display: flex;
-  width: 100%;
-
-  & .select__control {
-    display: flex;
+  & > div {
     width: 100%;
-    border-left: none;
+
+    & .select__control {
+      border-left: none;
+      cursor: default;
+    }
+
+    & .select__dropdown-indicator {
+      display: none;
+    }
   }
 `;
 
 const SearchButton = ({
-  isOpen,
-  onSearchbuttonClicked,
-  ...rest
-}: ISearchButton) => {
-  return (
-    <SSearchContainer>
-      <IconButton
-        icon={isOpen ? <Back /> : <Search />}
-        hasBorder
-        onClick={() => onSearchbuttonClicked()}
+  isSearchbarOpen,
+  onSearchButtonClicked,
+  ...selectProps
+}: ISearchButton) => (
+  <SSearchContainer>
+    <IconButton
+      icon={isSearchbarOpen ? <Back /> : <Search />}
+      hasBorder
+      onClick={onSearchButtonClicked}
+    />
+    {isSearchbarOpen && (
+      <SelectButton
+        isClearable
+        isSearchable
+        autoFocus
+        openMenuOnClick={false}
+        openMenuOnFocus={false}
+        {...selectProps}
       />
-      {isOpen && (
-        <SSearchBarSelect
-          isClearable
-          autoFocus
-          isSearchable
-          components={{ DropdownIndicator: () => <Close /> }}
-          {...rest}
-        />
-      )}
-    </SSearchContainer>
-  );
-};
+    )}
+  </SSearchContainer>
+);
 
 export default SearchButton;
