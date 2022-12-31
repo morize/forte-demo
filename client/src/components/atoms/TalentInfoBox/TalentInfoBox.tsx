@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-import { domainRGBValues, DomainType } from '../Talent/Talent';
+import { domainRGBValues } from '../Talent/Talent';
+import { DomainType } from '../../../seeders/TalentenSeeder';
 
 export interface ITalentInfoBox {
-  info: String;
+  info: string;
   domain: DomainType;
 }
 

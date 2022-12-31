@@ -6,11 +6,13 @@ import IconButton from '../../atoms/Button/IconButton';
 import { Back, MoreHorizontal } from '../../atoms/Icons/Icons';
 
 export interface IPageNavigation {
-  pageTitle: String;
-  pageSubtitle?: String;
+  pageTitle: string;
+  pageSubtitle?: string;
   hasBackButton?: boolean;
   hasMoreButton?: boolean;
-  onBackButtonClicked?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onBackButtonClicked?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 }
 
 const SPageNavigation = styled.div`
@@ -24,7 +26,7 @@ const SPageNavigation = styled.div`
     margin-left: auto;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 900px) {
     height: 80px;
     padding: 0 30px;
   }

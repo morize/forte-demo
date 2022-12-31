@@ -4,7 +4,7 @@ import IconButton from '../../atoms/Button/IconButton';
 import { Info, LightBulb, Warning, User } from '../../atoms/Icons/Icons';
 
 export interface ITalentInfoNavigation {
-  onNavigationItemClicked: (redirectTo: String) => void;
+  onNavigationItemClicked: (redirectTo: string) => void;
 }
 
 const STalentInfoNavigation = styled.div`
