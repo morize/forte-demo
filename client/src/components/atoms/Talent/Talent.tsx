@@ -1,8 +1,9 @@
+import { ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 import { TalentDomainsRGB } from '../Colors/Colors';
 
-const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
+const STalent = styled.button<{ domainRGBValues: Array<number> }>`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -11,7 +12,9 @@ const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
   padding: 14px;
   text-transform: capitalize;
   box-sizing: border-box;
-  
+  border: none;
+  cursor: pointer;
+
   ${({ domainRGBValues: [red, green, blue] }) =>
     `
       border-left: 3px solid rgba(${red}, ${green}, ${blue}, 1);
@@ -26,9 +29,10 @@ const STalentContainer = styled.div<{ domainRGBValues: Array<number> }>`
   }
 `;
 
-export interface ITalent {
+export interface ITalent extends ButtonHTMLAttributes<HTMLButtonElement> {
   talent: string;
   domain: string;
+  onTalentClicked: (talent: string) => void;
   placement?: number;
 }
 
@@ -43,16 +47,26 @@ export const domainRGBValues = (domain: String) => {
     case 'strategisch denken':
       return TalentDomainsRGB.strategicThinking;
     default:
-      return [255, 0, 0];
+      return [0, 0, 0];
   }
 };
 
-const Talent = ({ talent, domain, placement }: ITalent) => {
+const Talent = ({
+  talent,
+  domain,
+  placement,
+  onTalentClicked,
+  ...rest
+}: ITalent) => {
   return (
-    <STalentContainer domainRGBValues={domainRGBValues(domain)}>
+    <STalent
+      domainRGBValues={domainRGBValues(domain)}
+      onClick={() => onTalentClicked(talent)}
+      {...rest}
+    >
       {placement && <span>{placement}</span>}
       <p>{talent}</p>
-    </STalentContainer>
+    </STalent>
   );
 };
 

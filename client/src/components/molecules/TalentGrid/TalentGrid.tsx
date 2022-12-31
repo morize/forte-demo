@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Talent from '../../atoms/Talent/Talent';
@@ -6,32 +7,38 @@ import { TalentType, DomainType } from '../../../seeders/TalentenSeeder';
 
 export interface ITalentGrid {
   talentItems: TalentType[];
-  domain: DomainType;
+  domainName: DomainType;
   talentName?: string;
 }
 
 const STalentGrid = styled.div`
   display: grid;
-  grid-template-rows: repeat(2, auto);
   grid-template-columns: minmax(50px, 50%) minmax(50px, 50%);
   grid-gap: 12px;
 `;
 
-const TalentGrid = ({ talentItems, domain, talentName }: ITalentGrid) => {
+const TalentGrid = ({ talentItems, domainName, talentName }: ITalentGrid) => {
+  const navigate = useNavigate();
+
+  const handleTalentNavigation = (talentName: string) => {
+    navigate(talentName);
+  };
+
   const generateTalentItems = useCallback(
     (item: TalentType) => {
-      if (domain === 'alles' || domain === item.domain) {
+      if (domainName === 'alles' || domainName === item.domain) {
         return (
           <Talent
             talent={item.talent}
             domain={item.domain}
             placement={item.placement}
             key={item.talent}
+            onTalentClicked={handleTalentNavigation}
           />
         );
       }
     },
-    [domain]
+    [domainName]
   );
 
   const generateSingleTalent = useCallback(
@@ -43,6 +50,7 @@ const TalentGrid = ({ talentItems, domain, talentName }: ITalentGrid) => {
           talent={result.talent}
           domain={result.domain}
           placement={result.placement}
+          onTalentClicked={handleTalentNavigation}
         />
       ) : (
         <p>Niet gevonden</p>
