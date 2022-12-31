@@ -79,7 +79,9 @@ const Layout = ({ children }: ILayout) => {
         hasBackButton={pathLength > 1}
         onBackButtonClicked={(e) => {
           e.preventDefault();
-          navigate(-1);
+          pathLength !== 4
+            ? navigate(-1)
+            : navigate(`./${paths[0]}/${paths[1]}`);
         }}
       />
       <SLayout>{children}</SLayout>
