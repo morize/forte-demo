@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import TalentIndicator from '../../components/atoms/TalentIndicator/TalentIndicator';
-import SearchButton from '../../components/molecules/SearchButton/SearchButton';
-import SelectButton from '../../components/atoms/Button/SelectButton';
-import TalentDomainInfo from '../../components/atoms/TalentDomainInfo/TalentDomainInfo';
-import TalentGrid from '../../components/molecules/TalentGrid/TalentGrid';
+import TalentIndicator from '../components/atoms/TalentIndicator/TalentIndicator';
+import SearchButton from '../components/molecules/SearchButton/SearchButton';
+import SelectButton from '../components/atoms/Button/SelectButton';
+import TalentDomainInfo from '../components/atoms/TalentDomainInfo/TalentDomainInfo';
+import TalentGrid from '../components/molecules/TalentGrid/TalentGrid';
 
 import {
   domainOptions,
@@ -13,7 +13,7 @@ import {
   random34Talents,
   DomainOptionType,
   TalentOptionType,
-} from '../../seeders/TalentenSeeder';
+} from '../seeders/TalentenSeeder';
 
 const STalentOptions = styled.div`
   display: flex;
@@ -72,7 +72,7 @@ const TalentOverzicht = () => {
 
       <TalentGrid
         talentItems={random34Talents}
-        domain={activeDomain.value}
+        domainName={activeDomain.value}
         talentName={activeSearchOption?.value}
       />
     </>
