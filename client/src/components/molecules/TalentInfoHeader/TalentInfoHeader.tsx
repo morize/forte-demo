@@ -1,16 +1,18 @@
 import styled from 'styled-components';
-import { domainRGBValues, DomainType } from '../../atoms/Talent/Talent';
+
+import { domainRGBValues } from '../../atoms/Talent/Talent';
+import { DomainType } from '../../../seeders/TalentenSeeder';
 
 export interface ITalentInfoHeader {
-  talentName: String;
-  domainName: String;
-  domain: DomainType;
+  talentName: string;
+  domainName: DomainType;
   placement?: number;
 }
 
 const STalentInfoHeader = styled.div<{ domainRGBValues: Array<number> }>`
   display: flex;
   justify-content: space-between;
+  text-transform: capitalize;
 
   & div {
     & h2 {
@@ -32,9 +34,8 @@ const TalentInfoHeader = ({
   talentName,
   domainName,
   placement,
-  domain,
 }: ITalentInfoHeader) => (
-  <STalentInfoHeader domainRGBValues={domainRGBValues(domain)}>
+  <STalentInfoHeader domainRGBValues={domainRGBValues(domainName)}>
     <div>
       <h2>{talentName}</h2>
       <p>{domainName}</p>
