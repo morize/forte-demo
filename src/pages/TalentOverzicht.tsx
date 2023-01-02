@@ -2,8 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import TalentIndicator from '../components/atoms/TalentIndicator/TalentIndicator';
-import SearchButton from '../components/molecules/SearchButton/SearchButton';
-import SelectButton from '../components/atoms/Button/SelectButton';
+import ExpandingSearchBar from '../components/organisms/ExpandingSearchBar/ExpandingSearchBar';
+import SelectButton from '../components/molecules/SelectButton/SelectButton';
 import TalentDomainInfo from '../components/atoms/TalentDomainInfo/TalentDomainInfo';
 import TalentGrid from '../components/molecules/TalentGrid/TalentGrid';
 
@@ -50,7 +50,7 @@ const TalentOverzicht = () => {
       </div>
 
       <STalentOptions>
-        <SearchButton
+        <ExpandingSearchBar
           isSearchbarOpen={isSearchBarOpened}
           onSearchButtonClicked={handleOnSearchButtonClicked}
           onChange={(option) =>

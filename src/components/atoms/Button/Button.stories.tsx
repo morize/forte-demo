@@ -25,5 +25,5 @@ ButtonIcon.story = {
 ButtonIcon.args = {
   label: 'Menu',
   icon: <Menu />,
-  hasBorder: true,
+  hasBorder: false,
 };
