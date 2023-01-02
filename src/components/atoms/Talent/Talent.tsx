@@ -35,7 +35,7 @@ export interface ITalent extends ButtonHTMLAttributes<HTMLButtonElement> {
   placement?: number;
 }
 
-export const domainRGBValues = (domain: DomainType) => TalentDomainsRGB[domain];
+export const domainRGBValues = (domain: DomainType) => TalentDomainsRGB[domain] || TalentDomainsRGB.default;
 
 const Talent = ({
   talent,
