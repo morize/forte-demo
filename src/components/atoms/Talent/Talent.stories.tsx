@@ -16,8 +16,8 @@ const domainOptions = [
 
 TalentItem.story = {
   name: 'Talent Item',
-  domain: {
-    domainName: {
+  argTypes: {
+    domain: {
       options: domainOptions,
       control: { type: 'select' },
     },
