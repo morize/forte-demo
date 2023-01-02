@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import TalentIndicator from '../components/atoms/TalentIndicator/TalentIndicator';
@@ -31,10 +32,15 @@ const TalentOverzicht = () => {
   const [activeDomain, setActiveDomain] = useState<DomainOptionType>(
     domainOptions[0]
   );
+  const navigate = useNavigate();
 
   const handleOnSearchButtonClicked = () => {
     setActiveSearchOption(undefined);
     setIsSearchbarOpened(!isSearchBarOpened);
+  };
+
+  const handleTalentNavigation = (talentName: string) => {
+    navigate(talentName);
   };
 
   return (
@@ -73,7 +79,8 @@ const TalentOverzicht = () => {
       <TalentGrid
         talentItems={random34Talents}
         domainName={activeDomain.value}
-        talentName={activeSearchOption?.value}
+        talentSearchValue={activeSearchOption?.value}
+        onTalentItemClicked={handleTalentNavigation}
       />
     </>
   );
