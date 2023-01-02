@@ -25,5 +25,5 @@ export const TalentInfoNavigationItem = () => (
 );
 
 TalentInfoNavigationItem.story = {
-  name: 'TalentInfoNavigation Item',
+  name: 'TalentInfo Navigation',
 };

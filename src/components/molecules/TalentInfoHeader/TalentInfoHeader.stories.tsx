@@ -19,7 +19,7 @@ export const TalentInfoHeaderItem = (args: ITalentInfoHeader) => (
 );
 
 TalentInfoHeaderItem.story = {
-  name: 'TalentInfoHeader Item',
+  name: 'TalentInfo Header',
   argTypes: {
     domainName: {
       options: domainOptions,

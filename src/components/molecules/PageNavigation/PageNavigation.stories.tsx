@@ -9,7 +9,7 @@ export const PageNavigationItem = (args: IPageNavigation) => (
 );
 
 PageNavigationItem.story = {
-  name: 'Base Button',
+  name: 'Page Navigation',
 };
 PageNavigationItem.args = {
   pageTitle: 'Mijn Talenten',
