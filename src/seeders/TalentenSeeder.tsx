@@ -4,8 +4,10 @@ export type DomainType =
   | 'beinvloeden'
   | 'relatie bouwen'
   | 'strategisch denken';
+
 export type DomainOptionType = { label: string; value: DomainType };
 export type TalentOptionType = { label: string; value: string };
+
 export type TalentType = {
   talent: string;
   domain: DomainType;
@@ -98,24 +100,13 @@ export const random34Talents: TalentType[] = [
   { talent: 'communicatie', domain: 'beinvloeden', placement: 34 },
 ];
 
-export const domainDescription = [
-  {
-    domain: 'Uitvoeren',
-    description: 'Uitvoeren thema’s helpen u zaken klaar te krijgen',
-  },
-  {
-    domain: 'Beinvloeden',
-    description:
-      'Beinvloeden thema’s helpen u de leiding te nemen, u uit te spreken en ervoor te zorgen dat er naar anderen wordt geluisterd.',
-  },
-  {
-    domain: 'Relatie Bouwen',
-    description:
-      'Relatie bouwen thema’s helpen u sterke relaties op te bouwen die een team bijeenhouden.',
-  },
-  {
-    domain: 'Strategisch Denken',
-    description:
-      'Strategisch Denken thema’s helpen u de informatie te absorberen en analyseren waaraan betere beslissingen ten grondslag liggen.',
-  },
-];
+export const domainDescription: { [key: string]: string } = {
+  uitvoeren: 'Uitvoeren thema’s helpen u zaken klaar te krijgen',
+  beinvloeden:
+    'Beinvloeden thema’s helpen u de leiding te nemen, u uit te spreken en ervoor te zorgen dat er naar anderen wordt geluisterd.',
+  'relatie bouwen':
+    'Relatie bouwen thema’s helpen u sterke relaties op te bouwen die een team bijeenhouden.',
+  'strategisch denken':
+    'Strategisch Denken thema’s helpen u de informatie te absorberen en analyseren waaraan betere beslissingen ten grondslag liggen.',
+  default: '',
+};

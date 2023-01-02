@@ -1,35 +1,32 @@
 import { useCallback } from 'react';
+import styled from 'styled-components';
 
-import { domainDescription } from '../../../seeders/TalentenSeeder';
+import { domainDescription, DomainType } from '../../../seeders/TalentenSeeder';
 
 export interface ITalentDomainInfo {
-  domain: string;
+  domain: DomainType;
 }
 
-const TalentDomainInfo = ({ domain }: ITalentDomainInfo) => {
-  const generateDomainDescription = useCallback(
-    (domain: string) => {
-      const domainResult = domainDescription.find(
-        (item) => item.domain === domain
-      );
+const STalentDomainInfo = styled.div`
+  & h3 {
+    text-transform: capitalize;
+  }
+`;
 
-      return <p>{domainResult?.description} </p>;
-    },
-    [domain]
-  );
+export const getDomainDescription = (domain: DomainType) =>
+  domainDescription[domain];
 
-  return (
-    <div>
-      {domain !== 'Alles' ? (
-        <>
-          <h3>{domain}</h3>
-          {generateDomainDescription(domain)}
-        </>
-      ) : (
-        <h3>Alle talenten</h3>
-      )}
-    </div>
-  );
-};
+const TalentDomainInfo = ({ domain }: ITalentDomainInfo) => (
+  <STalentDomainInfo>
+    {domain !== 'alles' ? (
+      <>
+        <h3>{domain}</h3>
+        {getDomainDescription(domain)}
+      </>
+    ) : (
+      <h3>Alle talenten</h3>
+    )}
+  </STalentDomainInfo>
+);
 
 export default TalentDomainInfo;
