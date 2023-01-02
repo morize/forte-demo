@@ -78,7 +78,7 @@ const TalentOverzicht = () => {
 
       <TalentGrid
         talentItems={random34Talents}
-        domainName={activeDomain.value}
+        selectedDomain={activeDomain.value}
         talentSearchValue={activeSearchOption?.value}
         onTalentItemClicked={handleTalentNavigation}
       />
