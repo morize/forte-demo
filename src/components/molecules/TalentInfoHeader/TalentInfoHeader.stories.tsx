@@ -5,14 +5,15 @@ export default {
 };
 
 const domainOptions = [
-  'executing',
-  'influencing',
-  'relationship_building',
-  'strategic_thinking',
+  'alles',
+  'uitvoeren',
+  'beinvloeden',
+  'relatie bouwen',
+  'strategisch denken',
 ];
 
 export const TalentInfoHeaderItem = (args: ITalentInfoHeader) => (
-  <div style={{ padding: '8px 12px' }}>
+  <div style={{ width: '400px', padding: '8px 12px', margin: 'auto' }}>
     <TalentInfoHeader {...args} />
   </div>
 );
@@ -20,11 +21,15 @@ export const TalentInfoHeaderItem = (args: ITalentInfoHeader) => (
 TalentInfoHeaderItem.story = {
   name: 'TalentInfoHeader Item',
   argTypes: {
-    domain: {
+    domainName: {
       options: domainOptions,
       control: { type: 'select' },
     },
   },
 };
 
-TalentInfoHeaderItem.args = { talentName: "Leergierigheid", domainName: "Strategisch Denken", placement: 3, domain: 'strategic_thinking' };
+TalentInfoHeaderItem.args = {
+  talentName: 'Leergierigheid',
+  domainName: 'uitvoeren',
+  placement: 3,
+};
