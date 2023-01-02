@@ -52,17 +52,18 @@ const Layout = ({ children }: ILayout) => {
 
   const determineHeader = () => {
     switch (pathLength) {
-      case 3:
+      case 2:
         return {
           title: paths[pathLength - 2],
           subtitle: paths[pathLength - 1],
         };
 
-      case 4:
+      case 3:
         return {
           title: paths[pathLength - 3],
           subtitle: paths[pathLength - 2],
         };
+
       default:
         return {
           title: paths[pathLength - 1],
@@ -76,12 +77,14 @@ const Layout = ({ children }: ILayout) => {
       <PageNavigation
         pageTitle={determineHeader().title}
         pageSubtitle={determineHeader().subtitle}
-        hasBackButton={pathLength > 1}
+        hasBackButton={pathLength > 0}
         onBackButtonClicked={(e) => {
           e.preventDefault();
-          pathLength !== 4
-            ? navigate(-1)
-            : navigate(`./${paths[0]}/${paths[1]}`);
+          if (pathLength >= 2) {
+            navigate(`./${paths[0]}`);
+          } else {
+            navigate('./');
+          }
         }}
       />
       <SLayout>{children}</SLayout>
