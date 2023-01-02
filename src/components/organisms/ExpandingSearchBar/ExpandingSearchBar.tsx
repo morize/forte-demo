@@ -1,16 +1,18 @@
 import styled from 'styled-components';
-import { Props } from 'react-select';
 
-import SelectButton from '../../atoms/Button/SelectButton';
+import SelectButton, {
+  SelectButtonProps,
+} from '../../molecules/SelectButton/SelectButton';
 import IconButton from '../../atoms/Button/IconButton';
+
 import { Search, Back } from '../../atoms/Icons/Icons';
 
-export interface ISearchButton extends Props {
+export interface IExpandingSearchBar extends SelectButtonProps {
   isSearchbarOpen: boolean;
   onSearchButtonClicked: () => void;
 }
 
-const SSearchContainer = styled.div`
+const SExpandingSearchBar = styled.div`
   display: flex;
   flex: 1;
 
@@ -28,12 +30,12 @@ const SSearchContainer = styled.div`
   }
 `;
 
-const SearchButton = ({
+const ExpandingSearchBar = ({
   isSearchbarOpen,
   onSearchButtonClicked,
   ...selectProps
-}: ISearchButton) => (
-  <SSearchContainer>
+}: IExpandingSearchBar) => (
+  <SExpandingSearchBar>
     <IconButton
       icon={isSearchbarOpen ? <Back /> : <Search />}
       hasBorder
@@ -49,7 +51,7 @@ const SearchButton = ({
         {...selectProps}
       />
     )}
-  </SSearchContainer>
+  </SExpandingSearchBar>
 );
 
-export default SearchButton;
+export default ExpandingSearchBar;
