@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import PageNavigationTitle from '../../atoms/PageNavigationTitle/PageNavigationTitle';
+import NavigationTitle from '../../atoms/NavigationTitle/NavigationTitle';
 import IconButton from '../../atoms/Button/IconButton';
 
 import { Back, MoreHorizontal } from '../../atoms/Icons/Icons';
@@ -44,7 +44,7 @@ const PageNavigation = ({
     {hasBackButton && (
       <IconButton icon={<Back />} onClick={onBackButtonClicked} />
     )}
-    <PageNavigationTitle title={pageTitle} subTitle={pageSubtitle} />
+    <NavigationTitle title={pageTitle} subTitle={pageSubtitle} />
     {hasMoreButton && <IconButton icon={<MoreHorizontal />} />}
   </SPageNavigation>
 );
