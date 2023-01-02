@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Talent from '../../atoms/Talent/Talent';
@@ -8,7 +7,8 @@ import { TalentType, DomainType } from '../../../seeders/TalentenSeeder';
 export interface ITalentGrid {
   talentItems: TalentType[];
   domainName: DomainType;
-  talentName?: string;
+  onTalentItemClicked: (talent: string) => void;
+  talentSearchValue?: string;
 }
 
 const STalentGrid = styled.div`
@@ -17,13 +17,12 @@ const STalentGrid = styled.div`
   grid-gap: 12px;
 `;
 
-const TalentGrid = ({ talentItems, domainName, talentName }: ITalentGrid) => {
-  const navigate = useNavigate();
-
-  const handleTalentNavigation = (talentName: string) => {
-    navigate(talentName);
-  };
-
+const TalentGrid = ({
+  talentItems,
+  domainName,
+  onTalentItemClicked,
+  talentSearchValue,
+}: ITalentGrid) => {
   const generateTalentItems = useCallback(
     (item: TalentType) => {
       if (domainName === 'alles' || domainName === item.domain) {
@@ -33,7 +32,7 @@ const TalentGrid = ({ talentItems, domainName, talentName }: ITalentGrid) => {
             domain={item.domain}
             placement={item.placement}
             key={item.talent}
-            onTalentClicked={handleTalentNavigation}
+            onTalentClicked={onTalentItemClicked}
           />
         );
       }
@@ -50,19 +49,19 @@ const TalentGrid = ({ talentItems, domainName, talentName }: ITalentGrid) => {
           talent={result.talent}
           domain={result.domain}
           placement={result.placement}
-          onTalentClicked={handleTalentNavigation}
+          onTalentClicked={onTalentItemClicked}
         />
       ) : (
         <p>Niet gevonden</p>
       );
     },
-    [talentName]
+    [talentSearchValue]
   );
 
   return (
     <STalentGrid>
-      {talentName
-        ? generateSingleTalent(talentName)
+      {talentSearchValue
+        ? generateSingleTalent(talentSearchValue)
         : talentItems.map(generateTalentItems)}
     </STalentGrid>
   );
