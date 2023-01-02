@@ -12,12 +12,14 @@ export interface ITalentInfoHeader {
 const STalentInfoHeader = styled.div<{ domainRGBValues: Array<number> }>`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-transform: capitalize;
 
   & div {
     & h2 {
       margin-bottom: 2px;
     }
+
     & p {
       font-weight: 600;
       color: ${({ domainRGBValues: [red, green, blue] }) =>
@@ -26,7 +28,13 @@ const STalentInfoHeader = styled.div<{ domainRGBValues: Array<number> }>`
   }
 
   & span {
-    font-size: 24px;
+    font-size: 32px;
+  }
+
+  @media (max-width: 900px) {
+    & span {
+      font-size: 24px;
+    }
   }
 `;
 
