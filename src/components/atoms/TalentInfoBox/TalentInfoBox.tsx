@@ -10,7 +10,6 @@ export interface ITalentInfoBox {
 
 const STalentInfoBox = styled.p<{ domainRGBValues: Array<number> }>`
   display: flex;
-  align-items: center;
   padding: 14px;
   font-weight: 400;
 
