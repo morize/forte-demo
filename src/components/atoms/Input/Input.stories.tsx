@@ -14,6 +14,5 @@ InputBase.story = {
 
 InputBase.args = {
   label: "Naam",
-  placeholder: "Geef je doel een naam (maximaal 4 woorden)",
-  isClearable: false,
+  placeholder: "Geef je doel een naam (maximaal 4 woorden)"
 };
