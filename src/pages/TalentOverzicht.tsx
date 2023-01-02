@@ -68,7 +68,7 @@ const TalentOverzicht = () => {
         )}
       </STalentOptions>
 
-      <TalentDomainInfo domain={activeDomain.label} />
+      <TalentDomainInfo domain={activeDomain.value} />
 
       <TalentGrid
         talentItems={random34Talents}
