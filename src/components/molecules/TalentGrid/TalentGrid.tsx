@@ -6,7 +6,7 @@ import { TalentType, DomainType } from '../../../seeders/TalentenSeeder';
 
 export interface ITalentGrid {
   talentItems: TalentType[];
-  domainName: DomainType;
+  selectedDomain: DomainType;
   onTalentItemClicked: (talent: string) => void;
   talentSearchValue?: string;
 }
@@ -19,13 +19,13 @@ const STalentGrid = styled.div`
 
 const TalentGrid = ({
   talentItems,
-  domainName,
+  selectedDomain,
   onTalentItemClicked,
   talentSearchValue,
 }: ITalentGrid) => {
   const generateTalentItems = useCallback(
     (item: TalentType) => {
-      if (domainName === 'alles' || domainName === item.domain) {
+      if (selectedDomain === 'alles' || selectedDomain === item.domain) {
         return (
           <Talent
             talent={item.talent}
@@ -37,7 +37,7 @@ const TalentGrid = ({
         );
       }
     },
-    [domainName]
+    [selectedDomain]
   );
 
   const generateSingleTalent = useCallback(
