@@ -12,18 +12,21 @@ import EigenBetekenis from '../pages/TalentPagina/EigenBetekenis';
 const AppRoutes = () => (
   <Layout>
     <Routes>
-      <Route path="/hulpbronnen" element={<Hulpbronnen />} />
-      <Route path="/hulpbronnen/talenten" element={<TalentOverzicht />} />
+      <Route path="/" element={<Hulpbronnen />} />
+      <Route path="/talenten" element={<TalentOverzicht />} />
 
-      <Route
-        path="/hulpbronnen/talenten/:talentNaam"
-        element={<TalentPaginaLayout />}
-      >
-        <Route path="definitie" element={<Definitie />} />
-        <Route path="tips" element={<Tips />} />
-        <Route path="blinde-vlekken" element={<BlindeVlekken />} />
-        <Route path="eigen-betekenis" element={<EigenBetekenis />} />
-        <Route path="" element={<Definitie />} />
+      <Route path="/talenten/:talentNaam" element={<TalentPaginaLayout />}>
+        <Route path="/talenten/:talentNaam/definitie" element={<Definitie />} />
+        <Route path="/talenten/:talentNaam/tips" element={<Tips />} />
+        <Route
+          path="/talenten/:talentNaam/blinde-vlekken"
+          element={<BlindeVlekken />}
+        />
+        <Route
+          path="/talenten/:talentNaam/eigen-betekenis"
+          element={<EigenBetekenis />}
+        />
+        <Route path="/talenten/:talentNaam" element={<Definitie />} />
       </Route>
     </Routes>
   </Layout>
