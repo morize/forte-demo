@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 import { domainRGBValues } from '../Talent/Talent';
 
-const STalentIndicatorContainer = styled.div`
+const STalentIndicator = styled.div`
   display: flex;
-  justify-content: space-between;
-  height: 42px;
+  height: 38px;
   margin: 12px 0;
-  
+
   @media (max-width: 900px) {
-    height: 32px;
+    height: 28px;
   }
 
   @media (max-width: 380px) {
@@ -17,12 +16,11 @@ const STalentIndicatorContainer = styled.div`
   }
 `;
 
-const STalentIndicator = styled.div<{
+const STalentIndicatorItem = styled.div<{
   percentage: number;
   domainRGBValues: Array<Number>;
 }>`
-  display: flex;
-  min-width: 10%;
+  min-width: 5%;
 
   ${({ percentage, domainRGBValues: [red, green, blue] }) => `
       background-color: rgba(${red}, ${green}, ${blue}, 1);
@@ -37,24 +35,24 @@ export interface ITalentIndicator {
 }
 
 const TalentIndicator = (props: ITalentIndicator) => (
-  <STalentIndicatorContainer>
-    <STalentIndicator
+  <STalentIndicator>
+    <STalentIndicatorItem
       domainRGBValues={domainRGBValues('uitvoeren')}
       percentage={props.executingPerc}
     />
-    <STalentIndicator
+    <STalentIndicatorItem
       domainRGBValues={domainRGBValues('beinvloeden')}
       percentage={props.influencingPerc}
     />
-    <STalentIndicator
+    <STalentIndicatorItem
       domainRGBValues={domainRGBValues('relatie bouwen')}
       percentage={props.relBuildingPerc}
     />
-    <STalentIndicator
+    <STalentIndicatorItem
       domainRGBValues={domainRGBValues('strategisch denken')}
       percentage={props.stratThinkingPerc}
     />
-  </STalentIndicatorContainer>
+  </STalentIndicator>
 );
 
 export default TalentIndicator;
