@@ -1,6 +1,7 @@
-export const TalentDomainsRGB = {
-  executing: [126, 36, 129],
-  influencing: [233, 114, 0],
-  relationshipBuilding: [0, 112, 205],
-  strategicThinking: [0, 148, 93],
+export const TalentDomainsRGB: { [key: string]: number[] } = {
+  uitvoeren: [126, 36, 129],
+  beinvloeden: [233, 114, 0],
+  'relatie bouwen': [0, 112, 205],
+  'strategisch denken': [0, 148, 93],
+  default: [0, 0, 0],
 };
