@@ -269,7 +269,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   & h3 {
     text-transform: capitalize;
   }
-`,XS=e=>KS[e],JS=({domain:e})=>C(ZS,{children:e!=="alles"?oe(Ei,{children:[C("h3",{children:e}),XS(e)]}):C("h3",{children:"Alle talenten"})}),eE=Te.div`
+`,XS=e=>KS[e],JS=({domain:e})=>C(ZS,{children:e!=="alles"?oe(Ei,{children:[C("h3",{children:e}),C("p",{children:XS(e)})]}):C("h3",{children:"Alle talenten"})}),eE=Te.div`
   display: grid;
   grid-template-columns: minmax(50px, 50%) minmax(50px, 50%);
   grid-gap: 12px;
